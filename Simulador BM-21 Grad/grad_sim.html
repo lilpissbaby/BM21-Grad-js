@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>BM-21 Grad</title>
+		
+		<style>
+			body{
+			background-color: #bfbfbf;
+			}
+		
+			#titulo{
+				font-weight: bold;
+				text-align: center;
+				font-family: Arial;
+				font-size: 40px;
+			}
+			
+		   .launchpad {
+				width: 800px;
+				height: 320px;
+				display: grid;
+				grid-template-columns: repeat(10, 1fr);
+				grid-template-rows: repeat(4, 1fr);
+				gap: 2px; /* Opcional: espacio entre las casillas */
+				margin: auto;
+				border: 4px solid black;
+				padding: 10px;
+				background-color: #267326;
+			}
+			
+			.cannon {
+				width: 100%;
+				height: 100%;
+				border: 4px solid black;
+				box-sizing: border-box;
+				border-radius: 40px;
+			}
+			
+			#panel-status{
+				width: 820px;
+				height: 90px;
+				background-color: black;
+				border: 4px solid yellow;
+				color: yellow;
+				margin: auto;
+				margin-top: 10px;
+				display: flex;
+			}
+			
+			#panel-botones{
+				margin: auto;
+				border: 4px solid black;
+				width: 800px;
+				height: 60px;
+				margin-top: 10px;
+				padding: 10px;
+			}
+			
+			#panel-botones button{
+				margin: 3px;
+				border: 3px solid black;
+				padding: 3px;
+				font-weight: bold;
+				background-color: cyan;
+				float: center;
+			}
+			
+			#panel-botones button:hover{
+				margin: 3px;
+				border: 3px solid white;
+				padding: 1px;
+				font-weight: bold;
+				float: center;
+			}
+			
+			.botonVelPulsado{
+				background-color: yellow;
+			}
+			
+			.disparar{
+				color: white;
+				background-color: red;
+			}
+			
+			#panel-status p{
+				margin-left: 10px;
+				font-family: Arial;
+				position: relative;
+			}
+			
+			#left{
+				float: left;
+			}
+			
+			#right{
+				float: right;
+				margin-left: 100px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<p id="titulo">Simulador de sistema de artillería BM-21 Grad</p>
+		<div class="launchpad">
+			<div class="cannon" id="0"></div>
+			<div class="cannon" id="1"></div>
+			<div class="cannon" id="2"></div>
+			<div class="cannon" id="3"></div>
+			<div class="cannon" id="4"></div>
+			<div class="cannon" id="5"></div>
+			<div class="cannon" id="6"></div>
+			<div class="cannon" id="7"></div>
+			<div class="cannon" id="8"></div>
+			<div class="cannon" id="9"></div>
+			
+			<div class="cannon" id="10"></div>
+			<div class="cannon" id="11"></div>
+			<div class="cannon" id="12"></div>
+			<div class="cannon" id="13"></div>
+			<div class="cannon" id="14"></div>
+			<div class="cannon" id="15"></div>
+			<div class="cannon" id="16"></div>
+			<div class="cannon" id="17"></div>
+			<div class="cannon" id="18"></div>
+			<div class="cannon" id="19"></div>
+			
+			<div class="cannon" id="20"></div>
+			<div class="cannon" id="21"></div>
+			<div class="cannon" id="22"></div>
+			<div class="cannon" id="23"></div>
+			<div class="cannon" id="24"></div>
+			<div class="cannon" id="25"></div>
+			<div class="cannon" id="26"></div>
+			<div class="cannon" id="27"></div>
+			<div class="cannon" id="28"></div>
+			<div class="cannon" id="29"></div>
+			
+			<div class="cannon" id="30"></div>
+			<div class="cannon" id="31"></div>
+			<div class="cannon" id="32"></div>
+			<div class="cannon" id="33"></div>
+			<div class="cannon" id="34"></div>
+			<div class="cannon" id="35"></div>
+			<div class="cannon" id="36"></div>
+			<div class="cannon" id="37"></div>
+			<div class="cannon" id="38"></div>
+			<div class="cannon" id="39"></div>
+		</div>
+		
+		<div id="panel-botones">
+			<button onclick="recargar()">Recargar</button>
+			<button onclick="vaciar()">Vaciar</button>
+			<button onclick="velocidad(1,1)" id="sp1" class="botonesVel">Velocidad x1</button>
+			<button onclick="velocidad(2,2)" id="sp2" class="botonesVel">Velocidad x2</button>
+			<button onclick="velocidad(3,3)" id="sp3" class="botonesVel">Velocidad x3</button>
+			<button onclick="interrumpirLanzamiento()">INTERRUMPIR</button>
+			<button onclick="dispararTodo()" class="disparar" style="background-color: red;">Modo asalto</button>
+			<button onclick="dispararRafaga()" class="disparar" style="background-color: red;">Modo ráfaga</button>
+			<button onclick="dispararUno()" class="disparar" style="background-color: red;">Individual</button>
+		</div>
+		
+		<div id="panel-status">		
+			<span id="left">
+				<p>Estado: </p> 	<span id="resp-estado"></span>
+				<p>Velocidad: </p>	<span id="resp-vel"></span>
+			</span>
+			
+			<span id="right">
+				<p>Porcentaje restante: </p> 	<span id="porcj-estado"></span>
+				<p>FEC: </p>	<span id="fec"></span>
+			</span>
+		</div>
+		
+		<script src="grad_sim.js"></script>
+	</body>
+</html>
